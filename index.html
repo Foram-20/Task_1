@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const sections = document.querySelectorAll(".section");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute("href").substring(1);
+
+                    sections.forEach(section => {
+                        section.classList.remove("active");
+                        if (section.id === targetId) {
+                            section.classList.add("active");
+                        }
+                    });
+                });
+            });
+
+            // Activate the first section by default
+            if (sections.length > 0) {
+                sections[0].classList.add("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">Blog</div>
+        <ul>
+            <li><a href="#lifestyle">Lifestyle Tips</a></li>
+            <li><a href="#health">Health & Wellness</a></li>
+        </ul>
+    </nav>
+
+
+        <div id="lifestyle" class="section">
+            <p>Discover practical ways to enhance your daily life. From organizing your home to achieving work-life balance, our lifestyle tips help you create a harmonious and productive environment. Learn how small changes in your habits can lead to significant improvements in happiness and efficiency.</p>
+            <img src="life.jpg" alt="Lifestyle Tips">
+        </div>
+        
+        <div id="health" class="section">
+            <p>Your health is your wealth! Explore our insights on physical fitness, mental health, and nutritional advice. Find expert-backed strategies to maintain a healthy lifestyle, manage stress, and stay motivated on your wellness journey.</p>
+            <img src="health.jpg" alt="Health and Wellness">
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Blog. All rights reserved.
+    </footer>
+</body>
+</html>
